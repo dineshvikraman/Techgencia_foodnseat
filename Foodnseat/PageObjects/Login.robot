@@ -17,12 +17,12 @@ Login as valid user
     Click Element    ${SignIn}
     Input Text    ${emailid}    dineshvikraman87@gmail.com  
     Input Password    ${password}    Dineshuser#1  
-    Sleep    8       
-    Click Button    Sign In
+    Sleep    5       
+    Click Button    Sign in
     
 Login as invalid user
     Click Element    ${SignIn}
     Input Text    ${emailid}    abcd  
     Input Password    ${password}    abcd  
-    Sleep    8       
-    Click Button    Sign In
+    Sleep    5       
+    Click Button    Sign in

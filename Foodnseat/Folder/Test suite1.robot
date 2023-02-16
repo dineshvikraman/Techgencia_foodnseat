@@ -48,6 +48,77 @@ FoodnSeat login Test Negative
     Sleep    10
     Close Browser   
     Log    Test Passed  
+    
+
+Quantity and Add on adding and removing from the cart flow
+    
+
+    Open Browser    ${url}    ${Browser}
+    Maximize Browser Window                 
+    Sleep    10
+    Login as valid user
+    Sleep    25  
+
+  
+    Click Element    ${Select time}
+    Sleep    3    
+    Select From List By Value    ${Select time}    8:00 PM    
+    Sleep    3        
+    Click Element    ${Select person}  
+    Sleep    3    
+    Select From List By Value    ${Select person}    4
+    Sleep    7 
+
+#search location          
+    Click Element     id=dropdownMenu2
+    Sleep    5    
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[1]/div/div[5]/button[1]  
+    Sleep    5     
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[2]/div/button[1]   
+    Sleep    2       
+    Click Element   class:searchIcon     
+    Sleep    20
+    
+#result page        
+   Click Element    xpath=/html/body/app-root/app-home-layout/app-content-area/section/div/div[2]/div[1]/div/figure[1]/div/div[2]/div[4]/div[1]/div/span[1]            
+   Sleep    20    
+   Click Button    ${Select continue button}
+   Sleep    20
+   
+#table layout page   
+   Click Element    xpath=//*[@id="sticky"]/div[2]/div/button[3]   
+   Set Browser Implicit Wait    10
+   Click Element    xpath=//*[@id="menuitems"]/div/div/div[3]/button[2] 
+   Sleep    5
+   
+#cartpage
+    Click Button    xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[1]/div/div/div[3]/div[1]/div[2]/div/div[2]/button    
+    Sleep    3
+    Click Element    xpath=/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/mat-card/mat-dialog-content/div/div[1]/label/input
+    Click Element    xpath=/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/mat-card/mat-dialog-content/div/div[2]/label/input
+    Sleep    3  
+    Double Click Element    xpath:/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/div[3]/div/div[1]/img[2]    
+    Sleep    2   
+    Click Button    xpath=//*[@id="menuitems"]/div/div/div[3]/div[3]/div/button      
+    Sleep    10    
+    Click Button    xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[1]/div/div/div[3]/div[1]/div[1]/div/div[2]/button     
+    Sleep    3  
+    Double Click Element    xpath:/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/div[3]/div/div[1]/img[2]
+    Sleep    3   
+    Click Button    xpath=//*[@id="menuitems"]/div/div/div[3]/div[3]/div/button
+    Sleep    10
+#remove from cart
+    Click Element    xpath://*[@id="accordion-header-0"]/div/div[7]/i     
+    Sleep    5
+    Click Element    xpath://*[@id="accordion-header-0"]/div/div[7]/i
+    Sleep    5    
+    Close Browser
+    Log    Test Passed   
+            
+
+
+     
+   
    
 
 
@@ -64,7 +135,7 @@ Seat only without reservation charge flow
 
     Click Element    ${Select time}
     Sleep    3    
-    Select From List By Value    ${Select time}    3:30 PM    
+    Select From List By Value    ${Select time}    8:00 PM    
     Sleep    3            
     Click Element    ${Select person}  
     Sleep    3    
@@ -272,7 +343,7 @@ Menu only booking flow
     Sleep    18    
     Click Element    ${Select time}
     Sleep    3    
-    Select From List By Value    ${Select time}    5:00 PM    
+    Select From List By Value    ${Select time}    8:00 PM    
     Sleep    3        
     Click Element    ${Select person}  
     Sleep    3    
@@ -300,7 +371,7 @@ Menu only booking flow
 
 
     Sleep    20    
-    Click Element    xpath=//*[@id="D3"]/p    
+    Click Element    xpath=//*[@id="D2"]/p    
     Sleep    8    
     Click Button    ${Continue with selected seat button}    
     Sleep    8    
