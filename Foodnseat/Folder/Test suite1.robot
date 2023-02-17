@@ -117,7 +117,194 @@ Quantity and Add on adding and removing from the cart flow
             
 
 
+
+Sign up functionality from table layout page
+
+    Open Browser    ${url}    ${Browser}
+    Maximize Browser Window                 
+    Sleep    10
+
+    Click Element    ${Select time}
+    Sleep    3    
+    Select From List By Value    ${Select time}    9:15 PM    
+    Sleep    3        
+    Click Element    ${Select person}  
+    Sleep    3    
+    Select From List By Value    ${Select person}    4
+    Sleep    7 
+
+#search location          
+    Click Element     id=dropdownMenu2
+    Sleep    5    
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[1]/div/div[5]/button[1]  
+    Sleep    5     
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[2]/div/button[1]   
+    Sleep    2       
+    Click Element   class:searchIcon     
+    Sleep    20
+    
+#result page        
+   Click Element    xpath=/html/body/app-root/app-home-layout/app-content-area/section/div/div[2]/div[1]/div/figure[1]/div/div[2]/div[4]/div[1]/div/span[1]            
+   Sleep    20    
+   Click Button    ${Select continue button}
+   Sleep    20
+
+
+#table layout page            
+   Click Element    xpath=//*[@id="D1"]
+   Sleep    5    
+   Click Element    xpath://*[@id="mat-dialog-0"]/app-login/div/div[5]/a    
+   Sleep    2 
+   
+#sign up form   
+   Input Text    id:mat-input-2    test user
+   Input Text    id:mat-input-3    test
+   Input Text    id:mat-input-4    test
+   Input Text    exampleInputEmail1    sample1user20@sampleuser.com
+   Input Password    id:mat-input-6    9876543210    
+   Input Password    id:mat-input-7    Sample1user20@sampleuser.com
+   Input Password    id:mat-input-8    Sample1user20@sampleuser.com   
+   Sleep    5    
+   Click Button    xpath://*[@id="mat-dialog-1"]/app-signup/div/mat-dialog-content/button
+   Sleep    15    
+   
+#table layout page
+   Click Element    xpath=//*[@id="D1"]
+   Sleep    5
+   
+#sign in    
+   Click Element    id:exampleInputEmail1    
+   Sleep    5    
+   Input Text    id:exampleInputEmail1    sample1user20@sampleuser.com
+   Sleep    5    
+   Input Password    id:mat-input-10    Sample1user20@sampleuser.com
+   Sleep    8   
+   Click Button    xpath://*[@id="mat-dialog-2"]/app-login/div/button   
+   Sleep    10 
+  
+   Click Element    ${Continue with selected seat button}   
+   Sleep    8    
+   Click Element    ${Confirm selected table button}  
+   Sleep    30 
      
+ 
+   Click Button    xpath:/html/body/div[1]/div[2]/div/mat-dialog-container/app-warning/div/div/div/div[3]/button[1]    
+   Sleep    30 
+       
+   Click Element    ${Select checkbox before checkout} 
+   Sleep    10    
+   Click Button     xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[2]/div/div[4]/button    
+   Sleep    20
+   
+   Click Element    ${Select checkbox before pay button}   
+   Sleep    5        
+   Click Button    xpath=/html/body/app-root/app-checkout/section[2]/div/div[3]/div[1]/div[4]/div[2]/div[2]/div/button   
+   Sleep    5 
+   Make Paypal payment
+   Sleep    10    
+   Page Should Contain    Thank you for your reservation
+   Sleep    3    
+   Close Browser         
+
+
+
+Sign up functionality from menu item page
+
+    Open Browser    ${url}    ${Browser}
+    Maximize Browser Window                 
+    Sleep    10
+
+    Click Element    ${Select time}
+    Sleep    3    
+    Select From List By Value    ${Select time}    7:00 PM    
+    Sleep    3        
+    Click Element    ${Select person}  
+    Sleep    3    
+    Select From List By Value    ${Select person}    4
+    Sleep    7 
+
+#search location          
+    Click Element     id=dropdownMenu2
+    Sleep    5    
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[1]/div/div[5]/button[1]  
+    Sleep    5     
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[2]/div/button[1]   
+    Sleep    2       
+    Click Element   class:searchIcon     
+    Sleep    20
+    
+#result page        
+   Click Element    xpath=/html/body/app-root/app-home-layout/app-content-area/section/div/div[2]/div[1]/div/figure[1]/div/div[2]/div[4]/div[1]/div/span[1]            
+   Sleep    20    
+   Click Button    ${Select continue button}
+   Sleep    20
+   
+ 
+
+   Click Element    xpath=//*[@id="sticky"]/div[2]/div/button[3]   
+   Set Browser Implicit Wait    10
+   Click Element    xpath=//*[@id="menuitems"]/div/div/div[3]/button[2] 
+   
+
+#cart page
+    Sleep    40    
+    Click Button    xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[1]/div/div/div[3]/div[1]/div[2]/div/div[2]/button    
+    Sleep    5
+    Click Element    xpath=/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/mat-card/mat-dialog-content/div/div[1]/label/input
+    Click Element    xpath=/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/mat-card/mat-dialog-content/div/div[2]/label/input
+    Sleep    7    
+    Click Button    xpath=//*[@id="menuitems"]/div/div/div[3]/div[3]/div/button      
+    Sleep    10    
+    
+
+#sign up pop up
+    Click Element    xpath://*[@id="mat-dialog-2"]/app-login/div/div[5]/a     
+    Sleep    10    
+    Input Text    id:mat-input-3    test user
+    Input Text    id:mat-input-4    test    
+    Input Text    id:mat-input-5    test    
+    Input Text    id:exampleInputEmail1    sample1user11@sampleuser.com    
+    Input Password    id:mat-input-7    9876543210    
+    Input Password    id:mat-input-8    Sample1user11@sampleuser.com
+    Input Password    id:mat-input-9    Sample1user11@sampleuser.com 
+    Sleep    5       
+    Click Button    xpath://*[@id="mat-dialog-3"]/app-signup/div/mat-dialog-content/button    
+    Sleep    20
+    
+
+#adding item to cart again   
+    Click Button    xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[1]/div/div/div[3]/div[1]/div[2]/div/div[2]/button    
+    Sleep    5
+    Click Element    xpath=/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/mat-card/mat-dialog-content/div/div[1]/label/input
+    Click Element    xpath=/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/mat-card/mat-dialog-content/div/div[2]/label/input
+    Sleep    7    
+    Click Button    xpath=//*[@id="menuitems"]/div/div/div[3]/div[3]/div/button      
+    Sleep    10    
+    
+
+#login pop up
+    Input Text    id:exampleInputEmail1    Sample1user11@sampleuser.com    
+    Sleep    3    
+    Input Password    id:mat-input-11    Sample1user11@sampleuser.com    
+    Sleep    3    
+    Click Button    xpath://*[@id="mat-dialog-5"]/app-login/div/button
+    Sleep    15    
+        
+    
+#remove item from cart
+    Click Element    xpath://*[@id="accordion-header-0"]/div/div[7]/i     
+    Sleep    8
+    
+#sign out
+    Click Element    xpath://*[@id="navbarNavDropdown"]/ul/li[3]/a/span/mat-icon    
+    Sleep    3    
+    Click Element    xpath://*[@id="mat-menu-panel-5"]/div/div/button[4]/a/span
+    Sleep    5        
+      
+    Close Browser
+    Log    Test Passed 
+             
+                       
    
    
 
@@ -295,7 +482,7 @@ Menu only booking flow
    Click Element    xpath=//*[@id="menuitems"]/div/div/div[3]/button[2] 
    
 
-
+#cart page
     Sleep    40    
     Click Button    xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[1]/div/div/div[3]/div[1]/div[2]/div/div[2]/button    
     Sleep    5
