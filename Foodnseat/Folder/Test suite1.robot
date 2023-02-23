@@ -599,8 +599,8 @@ Menu only booking flow
    
    Make Paypal payment
    Sleep    20    
-    Page Should Contain    Thank you for your reservation
-    Sleep    2            
+   Page Should Contain    Thank you for your reservation
+   Sleep    2            
    Close Browser
  
          
@@ -689,9 +689,115 @@ Menu only booking flow
    Close Browser
 
 
+
+
+Seat selection validation for incorrect people count
+    
+
+    Open Browser    ${url}    ${Browser}
+    Maximize Browser Window                 
+    Sleep    10
+    Login as valid user
+    Sleep    18 
+    
+
+    Click Element    ${Select time}
+    Sleep    3    
+    Select From List By Value    ${Select time}    8:00 PM    
+    Sleep    3            
+    Click Element    ${Select person}  
+    Sleep    3    
+    Select From List By Value    ${Select person}    4
+         
+    
+    Sleep    7  
+    Click Element    id=dropdownMenu2
+    Sleep    5    
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[1]/div/div[4]/button[1]  
+    Sleep    5     
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[2]/div/button[1]    
         
+    Click Element   class:searchIcon     
+   
+       
+   Sleep    30    
+   Click Element    xpath=//*[@id="style-4"]/div/span[1]
+   Sleep    15    
+   Click Button    ${Select continue button}  
+  
 
 
+   Sleep    30          
+   Click Element    xpath=//*[@id="tbx1"]
+   Sleep    13      
+   Alert Should Be Present    Chair count not correct 
+   Sleep    3    
+   Close Browser
+   
+
+
+Cart validation if its empty
+    
+    Open Browser    ${url}    ${Browser}
+    Maximize Browser Window                 
+    Sleep    10
+    Login as valid user
+    
+
+    Sleep    18    
+    Click Element    ${Select time}
+    Sleep    3    
+    Select From List By Value    ${Select time}    4:30 PM  
+    Sleep    3        
+    Click Element    ${Select person}  
+    Sleep    3    
+    Select From List By Value    ${Select person}    4
+
+          
+         
+    
+    Sleep    7  
+    Click Element    id=dropdownMenu2
+    Sleep    5    
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[1]/div/div[5]/button[1]  
+    Sleep    5     
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[2]/div/button[1]   
+     Sleep    2       
+    Click Element   class:searchIcon     
+   
+            
+   Sleep    40  
+   Click Element    xpath=/html/body/app-root/app-home-layout/app-content-area/section/div/div[2]/div[1]/div/figure[1]/div/div[2]/div[4]/div[1]/div/span[1]            
+   Sleep    40    
+   Click Button    ${Select continue button}
+   
+   Sleep    30    
+   Click Element    xpath=//*[@id="sticky"]/div[2]/div/button[3]   
+   Set Browser Implicit Wait    10
+   Click Element    xpath=//*[@id="menuitems"]/div/div/div[3]/button[2] 
+   
+
+#cart page
+        
+   Sleep    15    
+   Click Element    ${Select checkbox before checkout} 
+   Sleep    10    
+   Click Button     xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[2]/div/div[5]/button    
+   Sleep    30
+   
+   Click Element    ${Select checkbox before pay button}   
+   Sleep    5        
+   Click Button    xpath=/html/body/app-root/app-checkout/section[2]/div/div[2]/div[1]/div[4]/div[2]/div[2]/div/button
+   Sleep    5 
+   
+   Make Paypal payment
+   Sleep    7    
+   Page Should Contain    Thank you for your reservation     
+   Sleep    2     
+   Close Browser
+
+        
+ 
 
 
     
