@@ -690,6 +690,126 @@ Menu only booking flow
 
 
 
+Split payment flow part1
+    
+ 
+    Open Browser    ${url}    ${Browser}
+    Maximize Browser Window                 
+    Sleep    10
+    Login as valid user
+    
+
+    Sleep    18    
+    Click Element    ${Select time}
+    Sleep    3    
+    Select From List By Value    ${Select time}    7:30 PM    
+    Sleep    3        
+    Click Element    ${Select person}  
+    Sleep    3    
+    Select From List By Value    ${Select person}    4    
+         
+    
+    Sleep    7  
+    Click Element     id=dropdownMenu2
+    Sleep    5    
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[1]/div/div[5]/button[1]  
+    Sleep    5     
+    Click Element    xpath=//*[@id="mat-menu-panel-0"]/div/div[2]/div/button[1]   
+     Sleep    2       
+    Click Element   class:searchIcon     
+   
+            
+   Sleep    20  
+   Click Element    xpath=/html/body/app-root/app-home-layout/app-content-area/section/div/div[2]/div[1]/div/figure[1]/div/div[2]/div[4]/div[1]/div/span[1]            
+   Sleep    20    
+   Click Button    ${Select continue button}
+   
+
+
+
+    Sleep    20    
+    Click Element    xpath=//*[@id="D2"]/p    
+    Sleep    8    
+    Click Button    ${Continue with selected seat button}    
+    Sleep    8    
+    Click Button    ${Confirm selected table button}    
+    Sleep    10    
+
+
+    Click Button    xpath:/html/body/div[1]/div[2]/div/mat-dialog-container/app-warning/div/div/div/div[3]/button[2]    
+    Sleep    3 
+    
+
+
+    Sleep    20    
+    Click Button    xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[1]/div/div/div[3]/div[1]/div[2]/div/div[2]/button    
+    Sleep    3
+    Click Element    xpath=/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/mat-card/mat-dialog-content/div/div[1]/label/input
+    Click Element    xpath=/html/body/div[1]/div[2]/div/mat-dialog-container/app-add-cart-popup/div/div/div/div[3]/mat-card/mat-dialog-content/div/div[2]/label/input
+    Sleep    2    
+    Click Button    xpath=//*[@id="menuitems"]/div/div/div[3]/div[3]/div/button      
+    Sleep    10    
+    Click Button    xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[1]/div/div/div[3]/div[1]/div[1]/div/div[2]/button     
+    Sleep    3    
+    Click Button    xpath=//*[@id="menuitems"]/div/div/div[3]/div[3]/div/button      
+            
+
+
+     
+   Sleep    15    
+   Click Element    ${Select checkbox before checkout} 
+   Sleep    10    
+   Click Button     xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[2]/div/div[5]/button   
+   Sleep    30
+   
+
+
+   Click Element    xpath:/html/body/app-root/app-checkout/section[2]/div/div[3]/div[1]/div[4]/div[2]/label[1]    
+   Sleep    3    
+   Click Element    xpath://*[@id="mat-dialog-5"]/app-splitpay/mat-dialog-content/div/div/div[2]/form/div[2]/div    
+   Sleep    3    
+   Input Text    xpath://*[@id="mat-dialog-5"]/app-splitpay/mat-dialog-content/div/div/div[2]/form/div[1]/div/div/div[3]/div/input    samjoetest2@gmail.com
+   Sleep    3    
+   Click Button    xpath://*[@id="mat-dialog-5"]/app-splitpay/mat-dialog-content/div/div/div[2]/form/button   
+   Sleep    5    
+
+   
+   Click Element    xpath:/html/body/app-root/app-checkout/section[2]/div/div[3]/div[1]/div[4]/div[3]/div[1]/label
+   Sleep    3      
+   Click Button    xpath:/html/body/app-root/app-checkout/section[2]/div/div[3]/div[1]/div[4]/div[3]/div[2]/button  
+   Sleep    10 
+   
+   Make Paypal payment
+   Sleep    20    
+   Page Should Contain    Thank you for your reservation
+   Sleep    2            
+   Close Browser
+ 
+
+Split payment flow part2
+    
+    Open Browser    https://eatnseat.nextgencia.com/tableReserv/splitpay?key=bdc574a3-962d-4434-8419-d067db7eea3a&Orderid=14840&IsSplitPay=True    Chrome
+    Maximize Browser Window
+    Sleep    5    
+    Input Text    id:exampleInputEmail1    samjoetest2@gmail.com
+    Sleep    2    
+    Input Password    id:mat-input-1    Samjoetest121@gmail.com
+    Sleep    2    
+    Click Button    xpath://*[@id="mat-dialog-0"]/app-login/div/button    
+    Sleep    20    
+    
+
+
+    Click Button    xpath:/html/body/app-root/app-checkout/section[2]/div/div[3]/div[1]/div[4]/div[2]/div[2]/button    
+    Sleep    15    
+    Make Paypal payment
+    Sleep    15    
+    Page Should Contain    Thank you for your reservation
+    Sleep    5            
+    Close Browser        
+
+
+
 
 Seat selection validation for incorrect people count
     
@@ -747,7 +867,7 @@ Cart validation if its empty
     Sleep    18    
     Click Element    ${Select time}
     Sleep    3    
-    Select From List By Value    ${Select time}    4:30 PM  
+    Select From List By Value    ${Select time}    10:30 PM  
     Sleep    3        
     Click Element    ${Select person}  
     Sleep    3    
@@ -782,20 +902,13 @@ Cart validation if its empty
    Sleep    15    
    Click Element    ${Select checkbox before checkout} 
    Sleep    10    
-   Click Button     xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[2]/div/div[5]/button    
-   Sleep    30
+   Click Button     xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[2]/div/div[4]/button 
+   Sleep    2       
+   Element Text Should Be    class:ng-tns-c11-42- toast-title ng-star-inserted    Your cart is empty        
+   Close Browser  
    
-   Click Element    ${Select checkbox before pay button}   
-   Sleep    5        
-   Click Button    xpath=/html/body/app-root/app-checkout/section[2]/div/div[2]/div[1]/div[4]/div[2]/div[2]/div/button
-   Sleep    5 
    
-   Make Paypal payment
-   Sleep    7    
-   Page Should Contain    Thank you for your reservation     
-   Sleep    2     
-   Close Browser
-
+   
         
  
 
