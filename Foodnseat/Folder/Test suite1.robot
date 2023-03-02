@@ -904,8 +904,12 @@ Cart validation if its empty
    Sleep    10    
    Click Button     xpath=/html/body/app-root/app-menu-layout/app-menu-display/section/div/div[2]/div[2]/div/div[4]/button 
    Sleep    2       
-   Element Text Should Be    class:ng-tns-c11-42- toast-title ng-star-inserted    Your cart is empty        
-   Close Browser  
+   Element Text Should Be    id:toast-container   Your cart is empty   
+   Sleep    3    
+   Close Browser
+   
+     
+   
    
    
    
